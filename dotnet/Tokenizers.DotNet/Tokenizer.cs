@@ -52,7 +52,7 @@ namespace Tokenizers.DotNet
                 {
                     fixed (char* pt = text)
                     {
-                        var tokensRaw = NativeMethods.tokenizer_encode((ushort*)p, sessionId.Length, (ushort*)pt, text.Length);
+                        var tokensRaw = NativeMethods.tokenizer_attention_mask((ushort*)p, sessionId.Length, (ushort*)pt, text.Length);
                         var tokens = tokensRaw->AsSpan<uint>();
                         return tokens.ToArray();
                     }
